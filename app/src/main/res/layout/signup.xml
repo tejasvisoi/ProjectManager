@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#292929"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="83dp"
+        android:src="@drawable/textlogin" />
+
+    <EditText
+        android:id="@+id/user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="44dp"
+        android:backgroundTint="#ffffff"
+        android:textCursorDrawable="@drawable/cursor"
+        android:hint="Username                                         "
+        android:textColorHint="#4c4c4c"
+        android:textColor="#fff"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="44dp"
+        android:textCursorDrawable="@drawable/cursor"
+        android:backgroundTint="#ffffff"
+        android:hint="Password                                          "
+        android:inputType="textPassword"
+        android:textColor="#fff"
+        android:textColorHint="#4c4c4c"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/pass2"
+        android:layout_width="wrap_content"
+        android:textCursorDrawable="@drawable/cursor"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="44dp"
+        android:backgroundTint="#ffffff"
+        android:hint="Confirm Password                           "
+        android:inputType="textPassword"
+        android:textColor="#fff"
+        android:textColorHint="#4c4c4c"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="90dp"
+        android:background="@drawable/signin" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="10dp"
+            android:text="Already have an account"
+            android:textColor="#fff" />
+
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="10dp"
+            android:background="#292929"
+            android:text="Login"
+            android:textColor="#fff" />
+
+    </LinearLayout>
+
+</LinearLayout>
