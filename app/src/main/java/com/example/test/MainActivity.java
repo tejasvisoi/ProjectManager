@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
-    private static int timeout = 1700;
+    private static int timeout = 2300;
     ImageView img,img2;
     Animation bottom;
     Animation top;
@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         img=(ImageView)findViewById(R.id.imageView);
         img2=(ImageView)findViewById(R.id.imageView2);
-
         top=AnimationUtils.loadAnimation(this,R.anim.movemyface);
         img2.setAnimation(top);
         bottom= AnimationUtils.loadAnimation(this,R.anim.movemyass);

@@ -15,12 +15,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class homepage extends AppCompatActivity {
+public class homepage extends AppCompatActivity{
     Button btnlogout;
     Animation left;
     View img1,img2,img3,img4,img21,img41,img31,logout;
-    FirebaseAuth mFirebaseAuth;
-    private FirebaseAuth.AuthStateListener mAuthStateListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,16 +31,6 @@ public class homepage extends AppCompatActivity {
         img31=(View)findViewById(R.id.contact1);
         img4=(View)findViewById(R.id.task1);
         img41=(View)findViewById(R.id.task);
-        logout=(View)findViewById(R.id.logout);
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                Intent i=new Intent(homepage.this,login.class);
-                startActivity(i);
-                finish();
-            }
-        });
         left= AnimationUtils.loadAnimation(this,R.anim.left);
         img1.setAnimation(left);
         img2.setAnimation(left);

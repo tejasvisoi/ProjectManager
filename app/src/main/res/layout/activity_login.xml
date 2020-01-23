@@ -1,76 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#292929"
-    android:orientation="vertical">
+    android:background="#292929">
 
     <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="44dp"
         android:layout_marginTop="83dp"
-        android:src="@drawable/textlogin" />
+        android:src="@drawable/textlogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="44dp"
-        android:textColor="#fff"
         android:backgroundTint="#ffffff"
         android:hint="Username                                         "
+        android:textColor="#fff"
         android:textColorHint="#4c4c4c"
+        android:textCursorDrawable="@drawable/cursor"
         android:textSize="20dp"
-        android:textCursorDrawable="@drawable/cursor"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <EditText
         android:id="@+id/pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="44dp"
         android:backgroundTint="#ffffff"
         android:hint="Password                                         "
         android:inputType="textPassword"
         android:textColor="#fff"
-        android:textCursorDrawable="@drawable/cursor"
         android:textColorHint="#4c4c4c"
-        android:textSize="20dp" />
+        android:textCursorDrawable="@drawable/cursor"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="@+id/user"
+        app:layout_constraintTop_toBottomOf="@+id/user" />
+
 
     <Button
         android:id="@+id/logon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="90dp"
-        android:background="@drawable/buttonlogin" />
+        android:layout_marginTop="84dp"
+        android:background="@drawable/buttonlogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pass" />
 
     <TextView
+        android:id="@+id/newuser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:text="New User register here"
-        android:textColor="#ffffff" />
-
+        android:textColor="#ffffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.385"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logon" />
 
     <Button
         android:id="@+id/signup"
         android:layout_width="60dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="248dp"
-        android:layout_marginTop="-25dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="12dp"
         android:background="@android:color/transparent"
         android:backgroundTintMode="screen"
         android:text="signup"
-        android:textColor="#fff" />
+        android:textColor="#fff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/newuser"
+        app:layout_constraintTop_toBottomOf="@+id/logon" />
 
     <ProgressBar
-        android:layout_height="wrap_content"
         android:id="@+id/progressbar"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="170dp"
-        android:visibility="gone"/>
-</LinearLayout>
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:backgroundTint="#FF601C"
+        android:forceDarkAllowed="true"
+        android:foregroundTint="#FF601C"
+        android:indeterminate="false"
+        android:indeterminateTint="#FF601C"
+        android:progressBackgroundTint="#FF601C"
+        android:progressTint="#FF601C"
+        android:secondaryProgressTint="#FF601C"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/user" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

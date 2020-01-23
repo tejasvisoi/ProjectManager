@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,7 +31,9 @@ public class login extends AppCompatActivity {
     EditText editTextEmail, editTextPassword;
     Button login, signup;
     ProgressBar pb;
-    private FirebaseAuth.AuthStateListener mAuthStateListener;
+    TextView newuser;
+
+    FirebaseAuth.AuthStateListener mAuthStateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,7 @@ public class login extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         editTextEmail = (EditText) findViewById(R.id.user);
         editTextPassword = (EditText) findViewById(R.id.pass);
-
+        newuser=(TextView)findViewById(R.id.newuser);
         login = (Button) findViewById(R.id.logon);
         signup = (Button) findViewById(R.id.signup);
         pb = (ProgressBar)findViewById(R.id.progressbar);
@@ -87,16 +90,27 @@ public class login extends AppCompatActivity {
                 }
 
                 else if (!(email.isEmpty() && password.isEmpty())) {
+                    newuser.setVisibility(View.INVISIBLE);
+                    login.setVisibility(View.INVISIBLE);
+                    signup.setVisibility(View.INVISIBLE);
                     pb.setVisibility(View.VISIBLE);
+
+
+
                     mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
                             if (!task.isSuccessful()) {
                                 Toast.makeText(login.this, "Password and Email do not match", Toast.LENGTH_SHORT).show();
+                                newuser.setVisibility(View.VISIBLE);
+                                login.setVisibility(View.VISIBLE);
+                                signup.setVisibility(View.VISIBLE);
                                 pb.setVisibility(View.GONE);
+
                             }
                             else {
+
                                 Intent i2 = new Intent(login.this, homepage .class);
                                 startActivity(i2);
                                 finish();

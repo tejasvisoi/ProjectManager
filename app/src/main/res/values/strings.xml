@@ -1,6 +1,21 @@
 <resources>
     <string name="app_name">Test</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="textfield">
+        <item>Roll No(User id):</item>
+        <item>Name:</item>
+        <item>Batch:</item>
+        <item>Department:</item>
+        <item>Course:</item>
+    </string-array>
+
+    <string-array name="hints">
+        <item>A2305217544</item>
+        <item>Tejasvi Soi</item>
+        <item>5CSE8</item>
+        <item>B.tech</item>
+        <item>CSE</item>
+    </string-array>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
