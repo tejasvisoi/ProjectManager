@@ -39,7 +39,7 @@ public class signup extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = editTextEmail.getText().toString().trim();
+                final String email = editTextEmail.getText().toString().trim();
                 String password = editTextPassword.getText().toString().trim();
                 String password1 = editTextPassword1.getText().toString().trim();
                 if (email.isEmpty()) {
@@ -80,7 +80,8 @@ public class signup extends AppCompatActivity {
                                 Toast.makeText(signup.this,"Email Already Exists",Toast.LENGTH_SHORT).show();
                             }
                             else {
-                                startActivity(new Intent(signup.this, homepage.class));
+
+                                startActivity(new Intent(signup.this, registration.class));
                                 finish();
                             }
                         }

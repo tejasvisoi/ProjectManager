@@ -1,12 +1,14 @@
 <resources>
     <string name="app_name">Test</string>
-
+    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
     <string-array name="textfield">
         <item>Roll No(User id):</item>
         <item>Name:</item>
         <item>Batch:</item>
         <item>Department:</item>
         <item>Course:</item>
+        <item>Email:</item>
+
     </string-array>
 
     <string-array name="hints">

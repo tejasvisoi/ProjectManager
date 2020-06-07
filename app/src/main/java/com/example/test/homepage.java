@@ -1,25 +1,20 @@
 package com.example.test;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.loader.app.LoaderManager;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.ImageView;
-import com.google.firebase.auth.FirebaseAuth;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 public class homepage extends AppCompatActivity{
-    Button btnlogout;
-    Animation left;
-    View img1,img2,img3,img4,img21,img41,img31,logout;
 
+    Animation left;
+    View img1,img2,img3,img4,img21,img41,img31;
+    String a;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,4 +81,5 @@ public class homepage extends AppCompatActivity{
         return;
 
     }
+
 }

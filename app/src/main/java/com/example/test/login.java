@@ -1,38 +1,37 @@
 package com.example.test;
 
-import androidx.annotation.NonNull;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
-
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import me.itangqi.waveloadingview.WaveLoadingView;
+import com.google.firebase.database.annotations.NotNull;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 public class login extends AppCompatActivity {
-
+    private static String data;
     FirebaseAuth mAuth;
     EditText editTextEmail, editTextPassword;
     Button login, signup;
     ProgressBar pb;
     TextView newuser;
-
+    private static final String TAG = "login";
     FirebaseAuth.AuthStateListener mAuthStateListener;
 
     @Override
@@ -48,9 +47,25 @@ public class login extends AppCompatActivity {
         pb = (ProgressBar)findViewById(R.id.progressbar);
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+            public void onAuthStateChanged(@NotNull FirebaseAuth firebaseAuth) {
                 FirebaseUser mfirebaseuser = mAuth.getCurrentUser();
                 if (mfirebaseuser != null) {
+                    FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                                    if (!task.isSuccessful()) {
+                                        Log.w(TAG, "getInstanceId failed", task.getException());
+                                        return;
+                                    }
+
+                                    // Get new Instance ID token
+                                    String token = task.getResult().getToken();
+
+                                    // Log and toast
+                                    String msg = getString(R.string.msg_token_fmt, token);
+
+                                }
+                            });
                     Toast.makeText(login.this, "Welcome Back!", Toast.LENGTH_SHORT).show();
                     Intent I1 = new Intent(login.this, homepage.class);
                     startActivity(I1);
@@ -99,7 +114,7 @@ public class login extends AppCompatActivity {
 
                     mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
+                        public void onComplete(@NotNull Task<AuthResult> task) {
 
                             if (!task.isSuccessful()) {
                                 Toast.makeText(login.this, "Password and Email do not match", Toast.LENGTH_SHORT).show();
@@ -110,8 +125,8 @@ public class login extends AppCompatActivity {
 
                             }
                             else {
-
-                                Intent i2 = new Intent(login.this, homepage .class);
+                                data=editTextEmail.getText().toString();
+                                Intent i2 = new Intent(login.this, homepage.class);
                                 startActivity(i2);
                                 finish();
                             }
@@ -130,7 +145,9 @@ public class login extends AppCompatActivity {
             }
         });
     }
-
+    public static String getdata(){
+        return data;
+    }
     @Override
     protected void onStart() {
         super.onStart();

@@ -13,8 +13,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 public class adapter extends RecyclerView.Adapter<adapter.MyOwnHolder> {
@@ -35,7 +33,6 @@ public class adapter extends RecyclerView.Adapter<adapter.MyOwnHolder> {
         inflater = LayoutInflater.from(ct);
         View view = inflater.inflate(R.layout.mylayoutregister, parent, false);
         MyOwnHolder holder = new MyOwnHolder(view);
-
         return holder;
     }
 
