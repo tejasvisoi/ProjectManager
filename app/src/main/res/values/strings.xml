@@ -6,9 +6,9 @@
     <string-array name="textfield">
         <item>Roll No(User id):</item>
         <item>Name:</item>
-        <item>Batch:</item>
+        <item>Stream:</item>
         <item>Department:</item>
-        <item>Course:</item>
+        <item>Field Of Study:</item>
         <item>Email:</item>
 
     </string-array>

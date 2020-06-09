@@ -2,6 +2,7 @@ package com.example.test;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -16,9 +17,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 public class registration extends AppCompatActivity {
+    private static final String TAG = "registration";
+
     boolean check;
     String a[];
     RecyclerView r;
@@ -48,6 +52,7 @@ public class registration extends AppCompatActivity {
                     for (int i = 0; i < adapter.editModelArrayList.size(); i++){
                         a[i]=adapter.editModelArrayList.get(i).getEditTextValue();
                     }
+                    topic();
                 users info=new users(a[0],a[1],a[2],a[3],a[4],a[5]);
                 if (a[0]!= null && a[1]!=null && a[2]!=null && a[3]!=null && a[4]!=null && a[5]!=null) {
 
@@ -56,6 +61,7 @@ public class registration extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             Toast.makeText(registration.this, "Completed", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), homepage.class));
+
                         }
                     });
                 }
@@ -63,6 +69,20 @@ public class registration extends AppCompatActivity {
             }
         });
     }
+    public void topic(){
+        FirebaseMessaging.getInstance().subscribeToTopic(a[4]).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        String msg = getString(R.string.msg_subscribed);
+                        if (!task.isSuccessful()) {
+                            msg = getString(R.string.msg_subscribe_failed);
+                        }
+                        Log.d(TAG, msg);
+                        Toast.makeText(registration.this, msg, Toast.LENGTH_SHORT).show();
+                    }
+                    });
+    }
+
     private ArrayList<modelclass> populateList(){
 
         ArrayList<modelclass> list = new ArrayList<>();

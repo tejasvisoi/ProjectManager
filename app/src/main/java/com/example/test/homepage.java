@@ -33,6 +33,7 @@ public class homepage extends AppCompatActivity{
         img4.setAnimation(left);
 
     }
+
     public void changefragment(View view){
         Fragment fragment;
         if(view==(findViewById(R.id.task1))){
