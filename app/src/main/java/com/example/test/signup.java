@@ -1,17 +1,14 @@
 package com.example.test;
 
 import android.content.Intent;
-
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,6 +22,8 @@ public class signup extends AppCompatActivity {
     EditText editTextEmail, editTextPassword,editTextPassword1;
     private FirebaseAuth mAuth;
     Button signup,login;
+    private static final String TAG = "signup";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +79,6 @@ public class signup extends AppCompatActivity {
                                 Toast.makeText(signup.this,"Email Already Exists",Toast.LENGTH_SHORT).show();
                             }
                             else {
-
                                 startActivity(new Intent(signup.this, registration.class));
                                 finish();
                             }

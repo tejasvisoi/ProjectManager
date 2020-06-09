@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Test</string>
     <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
+    <string name="msg_subscribed">Subscribed to weather topic</string>
+    <string name="msg_subscribe_failed">Failed to subscribe to weather topic</string>
     <string-array name="textfield">
         <item>Roll No(User id):</item>
         <item>Name:</item>

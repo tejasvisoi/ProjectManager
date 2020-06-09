@@ -34,10 +34,15 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                if (getIntent().hasExtra("title")){
+                    Intent intent = new Intent(MainActivity.this, login.class);
+                    startActivity(intent);
+                    finish();
 
-                Intent i = new Intent(MainActivity.this, login.class);
-                startActivity(i);
-                finish();
+                } else {
+                    startActivity(new Intent(MainActivity.this, login.class));
+                    finish();
+                }
 
             }
         }, timeout);
